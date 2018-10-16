@@ -1,6 +1,6 @@
 import java.util.*;
 
-
+//not finished
 
 public class StringCompression {
 
