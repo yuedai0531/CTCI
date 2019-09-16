@@ -13,8 +13,7 @@ public class StringCompression {
 		
 	}
 	public String compression(String args) {
-				
-		
+			
 		
 		return null;
 	}

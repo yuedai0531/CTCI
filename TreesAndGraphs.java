@@ -40,8 +40,8 @@ public class TreesAndGraphs {
 			visit(node);
 		}
 	}
-	
-	void BFS(Node root) {
+	//
+	void DFS(Node root) {
 		if(root == null) {
 			return;
 		}
@@ -52,36 +52,41 @@ public class TreesAndGraphs {
 				BFS(n);
 		}
 	}
-	
-	void DFS(Node root) {
+	//make sure is visited?
+	//use a queue
+	void BFS(Node root) {
 		Queue<Node> q = new LinkedList();
 		root.visited = true;
 		q.add(root);
 		
+		while(!q.isEmpty()) {
+			Node r = q.remove();
+			visit(r);
+			for(Node n : r.adjacent) {
+				if(n.visited == false) {
+					q.add(n);	
+					n.visited = true;			
+				}
+			}	
+			
+		}
+	}
+	
+	class Node{
+		
+	    int value;
+	    Node left;
+	    Node right;
+	    Node[] adjacent;
+	    boolean visited = false; 
+	 
+	    Node(int value) {
+	        this.value = value;
+	        right = null;
+	        left = null;
+	    }
 	}
 
-	
 }
 
-class Node{
-	
-    int value;
-    Node left;
-    Node right;
-    Node[] adjacent;
-    boolean visited = false;
-    
- 
-    Node(int value) {
-        this.value = value;
-        right = null;
-        left = null;
-    }
-	
-	
-}
 
-class Tree{
-	Node root;
-	
-}
